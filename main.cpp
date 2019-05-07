@@ -1,16 +1,9 @@
 #include <iostream>
 
-void func(void);
-
+int count;
+extern void write_extern();
 int main(){
-	int count = 10;
-	while(count--){
-		func();
-	}
+	count = 5;
+	write_extern();
 	return 0;
-}
-void func(void){
-	static int i = 5;
-	i++;
-	std::cout << "i value is " << i << std::endl;
 }
