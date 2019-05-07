@@ -1,14 +1,16 @@
 #include <iostream>
-#include <string>
-#include <limits>
 
-using namespace std;
+void func(void);
 
 int main(){
-	typedef int feet;
-	feet distance;
-	enum color {red, green, blue} c;
-	c = blue;
-	cout << "c type value:" << c;
+	int count = 10;
+	while(count--){
+		func();
+	}
 	return 0;
+}
+void func(void){
+	static int i = 5;
+	i++;
+	std::cout << "i value is " << i << std::endl;
 }
