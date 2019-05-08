@@ -1,24 +1,22 @@
 #include <iostream>
-using namespace std;
-class Box
-{
-	public:
-		Box(){
-			cout << "invoke constructor function" << endl;
-		}
-		~Box(){
-			cout << "invoke destroy function" << endl;
-		}
-};
 
+using std::cout;
+
+namespace first_space{
+        void func(){
+                cout << "first space func" << std::endl;
+        }
+	namespace second_space{
+		void  func(){
+			cout << "second sapce func" << std::endl;
+		}
+	}
+}
+
+//using namespace first_space;
+using namespace first_space::second_space;
 int main()
 {
-	// new方法创建的对象是在堆中的需要手动free或delete	
-	Box *p = new Box;
-	cout << "p is created" << endl;
-
-	// 此方法是函数的局部变量在栈中，函数结束就会销毁
-	Box b;
-	cout << "b is created" << endl;
-	return 0;
+        func();
+        return 0;
 }
